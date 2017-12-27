@@ -1,0 +1,17 @@
+resources:
+  - name: registry_create
+    action: [PROJECT-ID]/custom-gcp-cloudiot:cloudiot.projects.locations.registries.create
+    properties:
+      parent: projects/[PROJECT-ID]/locations/europe-west1
+      id: testregistry
+    metadata:
+      runtimePolicy:
+        - CREATE
+
+  - name: registry_delete
+    action: [PROJECT-ID]/custom-gcp-cloudiot:cloudiot.projects.locations.registries.delete
+    properties:
+      name: projects/[PROJECT-ID]/locations/europe-west1/registries/testregistry
+    metadata:
+      runtimePolicy:
+        - DELETE
